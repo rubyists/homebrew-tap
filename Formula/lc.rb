@@ -1,7 +1,6 @@
 class Lc < Formula
   desc "CLI for interacting with Linear.app"
   homepage "https://github.com/rubyists/linear-cli-ex"
-  version "0.8.1"
   license "WTFPL"
 
   on_macos do
