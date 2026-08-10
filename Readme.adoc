@@ -1,0 +1,15 @@
+= rubyists/homebrew-tap
+
+Homebrew tap for rubyists CLI tools.
+
+== Install
+
+[source,sh]
+----
+$ brew tap rubyists/tap
+$ brew install lc
+----
+
+`lc` is the https://github.com/rubyists/linear-cli-ex[linear-cli-ex] CLI for
+https://linear.app[Linear.app], covering macOS (Apple Silicon) and Linux
+(x86_64).
