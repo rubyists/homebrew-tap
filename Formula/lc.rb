@@ -5,15 +5,15 @@ class Lc < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/rubyists/linear-cli-ex/releases/download/v0.8.1/lc_macos_aarch64.tar.gz"
-      sha256 "c485b50e7eeba82ec5488d14a850d6588ca0f8fca7f2c47ecb9e2ca5867e87e2"
+      url "https://github.com/rubyists/linear-cli-ex/releases/download/v1.0.0/lc_macos_aarch64.tar.gz"
+      sha256 "977f8099f748f34cee355c72d99db22c574000b4c2f8e74be85a05fc612189fc"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/rubyists/linear-cli-ex/releases/download/v0.8.1/lc_linux_x86_64.tar.gz"
-      sha256 "728a285b1cd870121c26673d21969ac2977ed23a12e4c4f064b83a23fe1d257b"
+      url "https://github.com/rubyists/linear-cli-ex/releases/download/v1.0.0/lc_linux_x86_64.tar.gz"
+      sha256 "a538bef611950424fe7d484d484ec972fff57016a178c9a965e48ae9047787e4"
     end
   end
 
