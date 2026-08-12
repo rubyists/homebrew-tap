@@ -1,4 +1,4 @@
-class Lc < Formula
+class LinearCli < Formula
   desc "CLI for interacting with Linear.app"
   homepage "https://github.com/rubyists/linear-cli"
   license "WTFPL"
