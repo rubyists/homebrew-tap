@@ -7,9 +7,10 @@ Homebrew tap for rubyists CLI tools.
 [source,sh]
 ----
 $ brew tap rubyists/tap
-$ brew install lc
+$ brew install linear-cli
 ----
 
-`lc` is the https://github.com/rubyists/linear-cli[linear-cli] CLI for
-https://linear.app[Linear.app], covering macOS (Apple Silicon) and Linux
-(x86_64).
+`linear-cli` installs `lc` (plus the `lcreate`/`lcls`/`lclose`/`lcomment`/
+`lproj` wrapper scripts) - the https://github.com/rubyists/linear-cli[linear-cli]
+CLI for https://linear.app[Linear.app], covering macOS (Apple Silicon) and
+Linux (x86_64).

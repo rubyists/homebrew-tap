@@ -1,0 +1,31 @@
+---
+name: release-please
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    name: Open/update the release PR
+    runs-on: ubuntu-latest
+    steps:
+      -
+        uses: actions/checkout@v7
+        with:
+          fetch-tags: true
+      -
+        # Unlike rubyists/linear-cli's own release-please setup, this tap
+        # has no build-binaries-first step to race against GitHub's
+        # Immutable Releases - a formula bump is just text, so
+        # release-please can tag/release normally, no skip-github-release
+        # + custom atomic-tagging job needed.
+        uses: googleapis/release-please-action@v5
+        with:
+          config-file: .release-please-config.json
+          manifest-file: .release-please-manifest.json
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
