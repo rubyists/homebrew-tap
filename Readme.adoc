@@ -10,6 +10,6 @@ $ brew tap rubyists/tap
 $ brew install lc
 ----
 
-`lc` is the https://github.com/rubyists/linear-cli-ex[linear-cli-ex] CLI for
+`lc` is the https://github.com/rubyists/linear-cli[linear-cli] CLI for
 https://linear.app[Linear.app], covering macOS (Apple Silicon) and Linux
 (x86_64).
