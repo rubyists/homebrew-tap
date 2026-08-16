@@ -22,6 +22,11 @@ class LinearCli < Formula
       url "https://github.com/rubyists/linear-cli/releases/download/v#{version}/lc_linux_x86_64.tar.gz"
       sha256 "77645d71ab4699b52af89d9b4236a0361019dac6bca58d0ef6bf15a974356537"
     end
+
+    on_arm do
+      url "https://github.com/rubyists/linear-cli/releases/download/v#{version}/lc_linux_aarch64.tar.gz"
+      sha256 "b2c686b50420926b8b6cb6ef7be3984367c5d3817586e2f9a1898f15e343b545"
+    end
   end
 
   def install
