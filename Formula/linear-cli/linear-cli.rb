@@ -13,19 +13,19 @@ class LinearCli < Formula
   on_macos do
     on_arm do
       url "https://github.com/rubyists/linear-cli/releases/download/v#{version}/lc_macos_aarch64.tar.gz"
-      sha256 "5ddb227346fa9a950c50c967aad3b54cdde80e44b6c6c6cc4bfdc9a416a09305"
+      sha256 "81c4230ea2c85138f5aa0b23f8e4977cb5d92579c2b42b394864db133490c52a"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/rubyists/linear-cli/releases/download/v#{version}/lc_linux_x86_64.tar.gz"
-      sha256 "12322dde878af54336e8be6f9cc29c7795b4c9f27c10f0751f6777cd8f55ccba"
+      sha256 "a8f7dcf12b3d2f3e7f2f565a25169709945c69f15ce1c9ff63b6fa49648d6e91"
     end
 
     on_arm do
       url "https://github.com/rubyists/linear-cli/releases/download/v#{version}/lc_linux_aarch64.tar.gz"
-      sha256 "fd04b01f81fbb80a379088fdf33e4be67dbad7cf7be7f5fb5fd90d0a3d82f9dc"
+      sha256 "ffbe749d810a7cc47433a4e06ca7f59a96cb87b38266f41e1aa89f856a8e30b7"
     end
   end
 
