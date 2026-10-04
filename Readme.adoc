@@ -14,3 +14,10 @@ $ brew install linear-cli
 `lproj` wrapper scripts) - the https://github.com/rubyists/linear-cli[linear-cli]
 CLI for https://linear.app[Linear.app], covering macOS (Apple Silicon) and
 Linux (x86_64).
+
+`sv-helper` installs `sv-helper` (plus the `sv-start`/`sv-stop`/`sv-restart`/
+`sv-list`/`svls`/`sv-enable`/`sv-disable`/`sv-find` command links, `rsvlog`
+and `runsvdir.sh`) - https://github.com/rubyists/sv-helper[sv-helper]
+helpers for administering https://smarden.org/runit/[runit] services,
+covering macOS and Linux. Shell scripts, so one archive per OS and no
+architecture-specific builds.
