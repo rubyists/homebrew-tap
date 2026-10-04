@@ -147,6 +147,13 @@ class SvHelper < Formula
     assert_match (testpath/"tree").to_s,
                  shell_output("SVDIR=#{testpath}/tree #{bin}/sv-helper paths")
 
+    # Listing works before any service exists, rather than failing
+    # because there is nothing to list yet.
+    assert_equal "", shell_output("SVDIR=#{testpath}/tree #{bin}/sv-list").strip
+
+    # rsvlog refuses to run anywhere but a service's log directory.
+    assert_match "log directory", shell_output("#{bin}/rsvlog 2>&1", 1)
+
     # Enabling and disabling a definition really changes the tree.
     (testpath/"sv/hello").mkpath
     (testpath/"sv/hello/run").write "#!/bin/sh\nexec sleep 1000\n"
@@ -158,12 +165,5 @@ class SvHelper < Formula
       system bin/"sv-disable", "hello"
       refute_path_exists testpath/"tree/hello"
     end
-
-    # Listing works before any service exists, rather than failing
-    # because there is nothing to list yet.
-    assert_equal "", shell_output("SVDIR=#{testpath}/tree #{bin}/sv-list").strip
-
-    # rsvlog refuses to run anywhere but a service's log directory.
-    assert_match "log directory", shell_output("#{bin}/rsvlog 2>&1", 1)
   end
 end
