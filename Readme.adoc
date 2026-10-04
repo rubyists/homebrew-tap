@@ -8,9 +8,18 @@ Homebrew tap for rubyists CLI tools.
 ----
 $ brew tap rubyists/tap
 $ brew install linear-cli
+$ brew install sv-helper
 ----
 
 `linear-cli` installs `lc` (plus the `lcreate`/`lcls`/`lclose`/`lcomment`/
 `lproj` wrapper scripts) - the https://github.com/rubyists/linear-cli[linear-cli]
 CLI for https://linear.app[Linear.app], covering macOS (Apple Silicon) and
 Linux (x86_64).
+
+`sv-helper` installs `sv-helper` (plus its `sv-start`/`sv-stop`/
+`sv-restart`/`sv-list`/`svls`/`sv-enable`/`sv-disable`/`sv-find` links),
+`rsvlog` and `runsvdir.sh` - the https://github.com/rubyists/sv-helper[sv-helper]
+tools for managing http://smarden.org/runit/[runit] services as yourself,
+with per-service logging, on macOS and Linux. It depends on Homebrew's
+`runit`; on macOS, `brew services start runit` keeps the service tree
+supervised across logins.
