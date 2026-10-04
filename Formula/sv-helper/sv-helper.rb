@@ -12,21 +12,31 @@ class SvHelper < Formula
 
   # Shell scripts, so one archive per OS and no architecture anywhere.
   # The two archives carry identical contents; they are separate so each
-  # records the platform it is supported on.
-  #
-  # The digests below are placeholders. sv-helper's first release with
-  # published assets has not happened yet, and this must not merge
-  # before it has: its homebrew-tap-bump job writes .version and both
-  # sha256 values here from that release's own SHA256SUMS. See
-  # rubyists/sv-helper#15.
+  # records the platform it is supported on. Each url is repeated per
+  # architecture only because brew style allows a url inside
+  # on_arm/on_intel but not directly inside on_macos/on_linux.
   on_macos do
-    url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-darwin.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    on_arm do
+      url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-darwin.tar.gz"
+      sha256 "edd7082372306b95a1717d2e578099d6277991d618354d85a7140e680da50c5f"
+    end
+
+    on_intel do
+      url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-darwin.tar.gz"
+      sha256 "edd7082372306b95a1717d2e578099d6277991d618354d85a7140e680da50c5f"
+    end
   end
 
   on_linux do
-    url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-linux.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    on_arm do
+      url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-linux.tar.gz"
+      sha256 "edd7082372306b95a1717d2e578099d6277991d618354d85a7140e680da50c5f"
+    end
+
+    on_intel do
+      url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-linux.tar.gz"
+      sha256 "edd7082372306b95a1717d2e578099d6277991d618354d85a7140e680da50c5f"
+    end
   end
 
   # sv, runsvdir, runsv, svlogd and chpst. On macOS this formula is also
@@ -136,6 +146,18 @@ class SvHelper < Formula
     (testpath/"tree").mkpath
     assert_match testpath/"tree",
                  shell_output("SVDIR=#{testpath}/tree #{bin}/sv-helper paths")
+
+    # Enabling and disabling a definition really changes the tree.
+    (testpath/"sv/hello").mkpath
+    (testpath/"sv/hello/run").write "#!/bin/sh\nexec sleep 1000\n"
+    chmod 0755, testpath/"sv/hello/run"
+    with_env(SVDIR: "#{testpath}/tree", SV_SOURCE_DIR: "#{testpath}/sv") do
+      assert_equal (testpath/"sv/hello").to_s, shell_output("#{bin}/sv-find hello").chomp
+      system bin/"sv-enable", "hello"
+      assert_predicate testpath/"tree/hello", :symlink?
+      system bin/"sv-disable", "hello"
+      refute_path_exists testpath/"tree/hello"
+    end
 
     # Listing works before any service exists, rather than failing
     # because there is nothing to list yet.
