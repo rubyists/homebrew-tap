@@ -122,7 +122,7 @@ class SvHelper < Formula
     end
 
     assert_match "svls", shell_output("#{bin}/svls -h")
-    assert_match "sv-enable", shell_output("#{bin}/sv-helper")
+    assert_match "sv-enable", shell_output(bin/"sv-helper")
 
     # Which paths are correct depends on the platform, and the point of
     # checking is that it picks the right set. macOS runs on Homebrew's
@@ -144,7 +144,7 @@ class SvHelper < Formula
     # a second, separate supervision tree possible alongside the one
     # `brew services start runit` manages.
     (testpath/"tree").mkpath
-    assert_match testpath/"tree",
+    assert_match (testpath/"tree").to_s,
                  shell_output("SVDIR=#{testpath}/tree #{bin}/sv-helper paths")
 
     # Enabling and disabling a definition really changes the tree.
