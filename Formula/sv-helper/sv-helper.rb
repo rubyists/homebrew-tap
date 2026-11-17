@@ -18,24 +18,24 @@ class SvHelper < Formula
   on_macos do
     on_arm do
       url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-darwin.tar.gz"
-      sha256 "7314f19639a6a8c3c98adae254b6416fe4c73e2c614bd5facc9f4b7e8232ceab"
+      sha256 "8ac99accd5eb875364d2a98793c8f6ac9de95613d7af64e1ac324c3fdcc1d3fd"
     end
 
     on_intel do
       url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-darwin.tar.gz"
-      sha256 "7314f19639a6a8c3c98adae254b6416fe4c73e2c614bd5facc9f4b7e8232ceab"
+      sha256 "8ac99accd5eb875364d2a98793c8f6ac9de95613d7af64e1ac324c3fdcc1d3fd"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-linux.tar.gz"
-      sha256 "7314f19639a6a8c3c98adae254b6416fe4c73e2c614bd5facc9f4b7e8232ceab"
+      sha256 "8ac99accd5eb875364d2a98793c8f6ac9de95613d7af64e1ac324c3fdcc1d3fd"
     end
 
     on_intel do
       url "https://github.com/rubyists/sv-helper/releases/download/v#{version}/sv-helper-linux.tar.gz"
-      sha256 "7314f19639a6a8c3c98adae254b6416fe4c73e2c614bd5facc9f4b7e8232ceab"
+      sha256 "8ac99accd5eb875364d2a98793c8f6ac9de95613d7af64e1ac324c3fdcc1d3fd"
     end
   end
 
